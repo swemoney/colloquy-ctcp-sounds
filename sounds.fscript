@@ -1,0 +1,12 @@
+processSubcodeRequest := [ :command :arguments :user |
+	command = 'SOUND' ifTrue:
+	[
+		sound := arguments _asciiDescription substringWithRange: (NSValue rangeWithLocation:0 length: arguments length - 4).
+		(NSSound soundNamed: sound ) play.
+		YES.
+	]
+	ifFalse:
+	[
+		NO.
+	].
+].
